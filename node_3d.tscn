@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpsfmdqpnakd"]
+
+[ext_resource type="Script" path="res://playermovement.gd" id="1_b7806"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycbr1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_701v6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("1_b7806")
+
+[node name="CollisionSHape" type="CSGSphere3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116861, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Player/CollisionSHape"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_ycbr1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00693798, -0.048515, -0.00222072)
+mesh = SubResource("BoxMesh_701v6")
